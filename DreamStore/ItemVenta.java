@@ -1,12 +1,14 @@
 
 
-public class ItemCuenta {
+public class ItemVenta {
     private Producto producto;
     private int cantidad;
 
-    public ItemCuenta(Producto producto, int cantidad){
-        if(cantidad > producto.getStock()){
+    public ItemVenta(Producto producto, int cantidad){
+        if(producto.validarStock(cantidad) == false){
             System.out.println("No hay suficiente producto de " + producto.getNombre());
+            this.producto = producto; //registro el producto aunque no haya stock para usarlo después en el ticket y avisar al usuario.
+            this.cantidad = 0;
         }else{
             this.producto = producto;
             this.cantidad = cantidad;

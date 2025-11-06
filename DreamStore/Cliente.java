@@ -13,7 +13,7 @@ public class Cliente {
         return nombre;
     }
 
-    public String getCorreo() {
+   /*  public String getCorreo() {
         return correo;
-    }
+    } */
 }

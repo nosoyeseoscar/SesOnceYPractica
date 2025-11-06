@@ -3,7 +3,7 @@
 public class Producto {
     private String nombre;
     private double precio;
-    //private String categoria;
+    private String categoria;
     private int stock;
 
     public Producto(String nombre, double precio, String categoria, int stock) {
@@ -25,8 +25,19 @@ public class Producto {
         return nombre;
     }
 
+    public Boolean validarStock(int cantidad){
+        if (cantidad <= stock) {
+            return true;
+        }
+        return false;
+        /* 
+        Esto en JavaScript sería válido, pero en Java no lo sé
+        return cantidad <= stock; 
+        */
+    }
+
     public void reducirStock(int cantidad){
-        if (cantidad<=stock) {
+        if (validarStock(cantidad)) {
             stock = stock - cantidad; //stock -= cantidad;
         }else{
             System.out.println("No hay suficiente producto de "+nombre);
